@@ -16,19 +16,19 @@
 
 package com.example.myproject.service;
 
-import sample.data.jpa.domain.City;
+import sample.data.jpa.domain.Hotel;
+import sample.data.jpa.domain.Review;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.Repository;
 
-interface CityRepository extends Repository<City, Long> {
+interface ReviewRepository extends Repository<Review, Long> {
 
-	Page<City> findAll(Pageable pageable);
+	Page<Review> findByHotel(Hotel hotel, Pageable pageable);
 
-	Page<City> findByNameContainingAndCountryContainingAllIgnoringCase(String name,
-																	   String country, Pageable pageable);
+	Review findByHotelAndIndex(Hotel hotel, int index);
 
-	City findByNameAndCountryAllIgnoringCase(String name, String country);
+	Review save(Review review);
 
 }
