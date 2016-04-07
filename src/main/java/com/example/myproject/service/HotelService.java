@@ -16,11 +16,12 @@
 
 package com.example.myproject.service;
 
-import sample.data.jpa.domain.City;
-import sample.data.jpa.domain.Hotel;
-import sample.data.jpa.domain.Review;
-import sample.data.jpa.domain.ReviewDetails;
 
+
+import com.example.myproject.domain.City;
+import com.example.myproject.domain.Hotel;
+import com.example.myproject.domain.Review;
+import com.example.myproject.domain.ReviewDetails;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

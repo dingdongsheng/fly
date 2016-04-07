@@ -16,7 +16,8 @@
 
 package com.example.myproject.service;
 
-import sample.data.jpa.domain.Rating;
+
+import com.example.myproject.domain.Rating;
 
 public interface ReviewsSummary {
 

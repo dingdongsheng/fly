@@ -16,9 +16,9 @@
 
 package com.example.myproject.service;
 
-import sample.data.jpa.domain.Hotel;
-import sample.data.jpa.domain.Review;
 
+import com.example.myproject.domain.Hotel;
+import com.example.myproject.domain.Review;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.Repository;

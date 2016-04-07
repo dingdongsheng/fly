@@ -16,9 +16,9 @@
 
 package com.example.myproject.service;
 
-import sample.data.jpa.domain.City;
-import sample.data.jpa.domain.HotelSummary;
 
+import com.example.myproject.domain.City;
+import com.example.myproject.domain.HotelSummary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

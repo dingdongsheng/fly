@@ -18,11 +18,11 @@ package com.example.myproject.service;
 
 import java.util.List;
 
-import sample.data.jpa.domain.City;
-import sample.data.jpa.domain.Hotel;
-import sample.data.jpa.domain.HotelSummary;
-import sample.data.jpa.domain.RatingCount;
 
+import com.example.myproject.domain.City;
+import com.example.myproject.domain.Hotel;
+import com.example.myproject.domain.HotelSummary;
+import com.example.myproject.domain.RatingCount;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
