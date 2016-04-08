@@ -1,4 +1,4 @@
-package com.example.myproject.web;
+package com.cosmos.fly.web;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
