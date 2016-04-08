@@ -3,11 +3,15 @@ package com.cosmos.fly.service.impl;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cosmos.fly.domain.User;
+import com.cosmos.fly.common.util.Md5Util;
+import com.cosmos.fly.domain.UserEntity;
+import com.cosmos.fly.domain.beans.UserBean;
 import com.cosmos.fly.repository.UserRepository;
 import com.cosmos.fly.service.api.UserService;
 
@@ -22,24 +26,36 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
-	public Long addUser(String name){
+	public UserBean addUser(String name,String pwd){
 		
-		User user = new User();
+		String md5Pwd = Md5Util.md5(pwd);
+		String randomStr = UUID.randomUUID().toString();
+    	String token = Md5Util.md5(randomStr);
+		
+		UserEntity user = new UserEntity();
 		user.setName(name);
+		user.setPassword(md5Pwd);
+		user.setToken(token);
 		
 		userRepository.save(user);
-		return user.getId();
+		
+		UserBean userBean = new UserBean();
+		BeanUtils.copyProperties(user, userBean);
+		return userBean;
 	}
 
 	@Override
-	public List<User> listUser(){
+	public List<UserBean> listUser(){
 	
-		Iterable<User> usersIterable = userRepository.findAll();
-		Iterator<User> usersIterator = usersIterable.iterator();
-		List<User> userList = new ArrayList<>();
+		Iterable<UserEntity> usersIterable = userRepository.findAll();
+		Iterator<UserEntity> usersIterator = usersIterable.iterator();
+		List<UserBean> userList = new ArrayList<>();
 		
 		while(usersIterator.hasNext()){
-			userList.add(usersIterator.next());
+			UserBean userBean = new UserBean();
+			UserEntity userEntity = usersIterator.next();
+			BeanUtils.copyProperties(userEntity, userBean);
+			userList.add(userBean);
 		}
 		return userList;
 	}

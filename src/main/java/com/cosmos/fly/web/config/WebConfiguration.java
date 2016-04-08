@@ -1,4 +1,4 @@
-package com.cosmos.fly.web;
+package com.cosmos.fly.web.config;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;

@@ -1,4 +1,4 @@
-package com.cosmos.fly.web;
+package com.cosmos.fly.web.config;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

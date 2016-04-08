@@ -1,6 +1,7 @@
-package com.cosmos.fly.web;
+package com.cosmos.fly.web.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cosmos.fly.domain.User;
+import com.cosmos.fly.common.Result;
+import com.cosmos.fly.common.util.Md5Util;
+import com.cosmos.fly.domain.UserEntity;
+import com.cosmos.fly.domain.beans.UserBean;
 import com.cosmos.fly.service.api.UserService;
 
 /**
@@ -17,38 +21,24 @@ import com.cosmos.fly.service.api.UserService;
  */
 @RestController
 @RequestMapping(value = "/user")
-public class CustomerController {
+public class UserController {
 	
 	@Autowired
 	private UserService userService;
 	
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login(String userName, String password) {
-        return new ModelAndView("login");
-    }
-    
-    
-    
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+  
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
     @ResponseBody
-    public String addUser(String userName) {
-    	
-    	try{
-    	
-    	Long id = userService.addUser(userName);
-        return id.toString();
-    	}catch(Exception e){
-    		e.printStackTrace();
-    	}
-    	return "error";
+    public Result<UserBean> register(String userName,String password) {
+    	UserBean userBean = userService.addUser(userName,password);
+    	return Result.success(userBean);
     }
     
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public List<User> listUser(String userName) {
-    	return userService.listUser();
-      
+    public List<UserEntity> listUser(String userName) {
+    	return null;
     }
     
     

@@ -4,6 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import com.cosmos.fly.web.config.interceptor.CheckAuthInterceptor;
 
 /**
  * Created by dingdongsheng on 16/3/24.
@@ -31,7 +35,7 @@ import org.springframework.context.annotation.Configuration;
 // If you find that specific auto-configure classes are being applied that you don’t want, you can use the exclude attribute of @EnableAutoConfiguration to disable them.
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 
-public class Application {
+public class Application{
     public static void main(String[] args) {
 
         // Disable the restart support.
